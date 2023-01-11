@@ -1,0 +1,27 @@
+---
+interface Props {
+  numberList: number;
+  titleMovie: string;
+  numberViews: number;
+  imgUrl: string;
+}
+
+const { imgUrl, numberList, numberViews, titleMovie } = Astro.props;
+---
+
+<li
+  class="grid grid-cols-[40px_1fr_60px] gap-4 items-center w-full p-3 bg-gradient-to-r from-body-300 to-body-200 rounded-xl movie1"
+>
+  <p class="text-4xl font-title border-r-2">{numberList}</p>
+  <section class="font-sans">
+    <h4 class="font-bold">{titleMovie}</h4>
+    <p class="text-[13px] font-light">{numberViews} vistas</p>
+  </section>
+  <figure class="w-16 h-16">
+    <img
+      src={`${import.meta.env.PUBLIC_MDB_IMAGE}/w200${imgUrl}`}
+      alt={titleMovie}
+      class="w-full h-full object-cover rounded-xl"
+    />
+  </figure>
+</li>
